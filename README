@@ -1,0 +1,45 @@
+This README file contains information on the contents of the meta-iotfablab layer.
+This layer is developed for custom applications on  __PHYTEC phyBOARD Mira__ boards.
+This includes recipes for Python application to collect various sensor values from different device
+and store them into __InfluxDB__ on the board and sending them via MQTT to a designated Broker.
+
+Please see the corresponding sections below for details.
+
+Dependencies
+============
+
+  URI: git://git.openembedded.org/bitbake
+  branch: warrior
+
+  URI: git://git.openembedded.org/openembedded-core
+  branch: warrior
+
+  URI: git://git.phytec.de/meta-phytec
+  branch: warrior
+
+  URI: git://git.phytec.de/meta-yogurt
+  branch: warrior
+
+  URI: git://github.com/alihanyalcin/meta-influx.git
+  branch: master
+
+
+Patches
+=======
+
+Please submit any patches against the meta-iotfablab layer by creating a Pull Request
+for this repository
+
+Maintainer: Shantanoo Desai <des@biba.uni-bremen.de>
+
+Table of Contents
+=================
+
+  I. Adding the meta-iotfablab layer to your build
+
+
+I. Adding the meta-iotfablab layer to your build
+=================================================
+
+Run 'bitbake-layers add-layer meta-iotfablab'
+
