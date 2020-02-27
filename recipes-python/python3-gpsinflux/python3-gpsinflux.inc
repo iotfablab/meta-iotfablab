@@ -1,6 +1,6 @@
 SUMMARY = "Extract GPS values and store into InfluxDB and publish via MQTT"
 HOMEPAGE = "https://github.com/iotfablab/gpsinflux"
-LICENSE = "LGPLv3 & MIT & MIT-&-LGPLv3"
+LICENSE = "LGPLv3 & MIT"
 LIC_FILES_CHKSUM = "file://COPYING;md5=024a73d05967bca8733881188d78b2ee \
                     file://LICENSE;md5=25498e25581c2413266e28dd693d4725"
 
