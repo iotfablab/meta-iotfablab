@@ -1,0 +1,42 @@
+From 27ea6021a30fbcb114335cec6785ff65db24db5b Mon Sep 17 00:00:00 2001
+From: Shan Desai <des@biba.uni-bremen.de>
+Date: Mon, 1 Oct 2018 14:14:12 +0200
+Subject: [PATCH] Add UART1 pins to DTSI file
+
+---
+ arch/arm/boot/dts/imx6qdl-phytec-mira.dtsi | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+diff --git a/arch/arm/boot/dts/imx6qdl-phytec-mira.dtsi b/arch/arm/boot/dts/imx6qdl-phytec-mira.dtsi
+index 539edbedac9a..a51d98c71524 100644
+--- a/arch/arm/boot/dts/imx6qdl-phytec-mira.dtsi
++++ b/arch/arm/boot/dts/imx6qdl-phytec-mira.dtsi
+@@ -447,6 +447,13 @@
+ 			fsl,pins = <MX6QDL_PAD_GPIO_17__GPIO7_IO12	0x80000000>;
+ 		};
+ 
++                pinctrl_uart1:uart1grp {
++                         fsl,pins = <
++                                MX6QDL_PAD_CSI0_DAT10__UART1_TX_DATA 0X1b0b1
++                                MX6QDL_PAD_CSI0_DAT11__UART1_RX_DATA 0x1b0b1
++                         >;
++                };
++
+ 		pinctrl_uart2: uart2grp {
+ 			fsl,pins = <
+ 				MX6QDL_PAD_EIM_D26__UART2_TX_DATA	0x1b0b1
+@@ -571,6 +578,11 @@
+ 	status = "disabled";
+ };
+ 
++&uart1 {
++        pinctrl-names = "default";
++        pinctrl-0 = <&pinctrl_uart1>;
++        status = "disabled";
++};
+ 
+ &uart2 {
+ 	pinctrl-names = "default";
+-- 
+2.11.0
+
