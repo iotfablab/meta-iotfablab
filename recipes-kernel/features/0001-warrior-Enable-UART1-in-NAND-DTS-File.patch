@@ -1,0 +1,24 @@
+From 8930883ac8c9186144ab3d64208f66df08c2084f Mon Sep 17 00:00:00 2001
+From: Shan Desai <des@biba.uni-bremen.de>
+Date: Thu, 27 Feb 2020 19:03:16 +0100
+Subject: [PATCH] [warrior] Enable UART1 in NAND DTS File
+
+---
+ arch/arm/boot/dts/imx6q-phytec-mira-ff-rdk-nand.dts | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/arch/arm/boot/dts/imx6q-phytec-mira-ff-rdk-nand.dts b/arch/arm/boot/dts/imx6q-phytec-mira-ff-rdk-nand.dts
+index 0b58448a9084..a84199a0ab37 100644
+--- a/arch/arm/boot/dts/imx6q-phytec-mira-ff-rdk-nand.dts
++++ b/arch/arm/boot/dts/imx6q-phytec-mira-ff-rdk-nand.dts
+@@ -81,3 +81,7 @@
+ &usdhc1 {
+ 	status = "okay";
+ };
++
++&uart1 {
++    status = "okay"; // to enable use "okay"; to disable use "disabled"
++};
+-- 
+2.11.0
+

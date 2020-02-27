@@ -1,0 +1,48 @@
+From bb3a3ba1898cf21b4e532520322758f385db7506 Mon Sep 17 00:00:00 2001
+From: Shan Desai <des@biba.uni-bremen.de>
+Date: Thu, 27 Feb 2020 19:01:47 +0100
+Subject: [PATCH] [warrior] Add UART1 in DTSI File
+
+---
+ arch/arm/boot/dts/imx6qdl-phytec-mira.dtsi | 14 +++++++++++++-
+ 1 file changed, 13 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm/boot/dts/imx6qdl-phytec-mira.dtsi b/arch/arm/boot/dts/imx6qdl-phytec-mira.dtsi
+index 2e4dae82ca17..be9d7f20b8fd 100644
+--- a/arch/arm/boot/dts/imx6qdl-phytec-mira.dtsi
++++ b/arch/arm/boot/dts/imx6qdl-phytec-mira.dtsi
+@@ -488,6 +488,12 @@
+ 	status = "okay";
+ };
+ 
++&uart1 {
++  pinctrl-names = "default";
++  pinctrl-0 = <&pinctrl_uart1>;
++  status = "disabled"; // will be enabled in `nand.dts` file
++};
++
+ &uart2 {
+ 	pinctrl-names = "default";
+ 	pinctrl-0 = <&pinctrl_uart2>;
+@@ -633,7 +639,12 @@
+ 			MX6QDL_PAD_GPIO_17__GPIO7_IO12		0x1b0b0
+ 		>;
+ 	};
+-
++	pinctrl_uart1:uart1grp {
++		fsl,pins = <
++			MX6QDL_PAD_CSI0_DAT10__UART1_TX_DATA 0X1b0b1
++			MX6QDL_PAD_CSI0_DAT11__UART1_RX_DATA 0x1b0b1
++                >;
++	};
+ 	pinctrl_uart2: uart2grp {
+ 		fsl,pins = <
+ 			MX6QDL_PAD_EIM_D26__UART2_TX_DATA	0x1b0b1
+@@ -680,3 +691,4 @@
+ 		>;
+ 	};
+ };
++
+-- 
+2.11.0
+
