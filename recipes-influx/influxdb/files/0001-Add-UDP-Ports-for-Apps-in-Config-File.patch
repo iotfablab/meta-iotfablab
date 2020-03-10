@@ -1,0 +1,93 @@
+From 318769f695cb6d2fc231192b8156eeaeeb4b2ea7 Mon Sep 17 00:00:00 2001
+From: Shan Desai <des@biba.uni-bremen.de>
+Date: Tue, 10 Mar 2020 17:22:16 +0100
+Subject: [PATCH] Add UDP Ports for Apps in Config File
+
+---
+ etc/influxdb/influxdb.conf | 73 ++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 73 insertions(+)
+
+diff --git a/etc/influxdb/influxdb.conf b/etc/influxdb/influxdb.conf
+index 42bac87..43772e5 100644
+--- a/etc/influxdb/influxdb.conf
++++ b/etc/influxdb/influxdb.conf
+@@ -584,3 +584,76 @@
+   # Maximum version of the tls protocol that will be negotiated. If not specified, uses the
+   # default settings from Go's crypto/tls package.
+   # max-version = "tls1.2"
++
++[[udp]]
++  # Deflection sensor
++  enabled = true
++  bind-address = ":8091"
++  database = "UMG"
++  retention-policy = ""
++  batch-size = 5000
++  batch-pending = 10
++  read-buffer = 0
++  batch-timeout = "1s"
++  precision = "n"
++
++[[udp]]
++  # GPS
++  enabled = true
++  bind-address = ":8092"
++  database = "UMG"
++  retention-policy = ""
++  batch-size = 5000
++  batch-pending = 10
++  read-buffer = 0
++  batch-timeout = "1s"
++  precision = "n"
++
++[[udp]]
++  # NMEA2000
++  enabled = true
++  bind-address = ":8093"
++  database = "UMG"
++  retention-policy = ""
++  batch-size = 5000
++  batch-pending = 10
++  read-buffer = 0
++  batch-timeout = "1s"
++  precision = "n"
++
++[[udp]]
++  # CISS Sensor
++  enabled = true
++  bind-address = ":8094"
++  database = "UMG"
++  retention-policy = ""
++  batch-size = 5000
++  batch-pending = 10
++  read-buffer = 0
++  batch-timeout = "1s"
++  precision = "n"
++
++[[udp]]
++  # BNO055
++  enabled = true
++  bind-address = ":8095"
++  database = "UMG"
++  retention-policy = ""
++  batch-size = 5000
++  batch-pending = 10
++  read-buffer = 0
++  batch-timeout = "1s"
++  precision = "n"
++
++[[udp]]
++  # Button
++  enabled = true
++  bind-address = ":8096"
++  database = "UMG"
++  retention-policy = ""
++  batch-size = 5000
++  batch-pending = 10
++  read-buffer = 0
++  batch-timeout = "1s"
++  precision = "n"
++
+-- 
+2.11.0
+
