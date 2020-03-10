@@ -1,0 +1,14 @@
+[Unit]
+Description=GPS Acquition Service for UMG and MQTT Publishing
+After=influxdb.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/gpsinflux --config /etc/umg/conf.json
+ExecStop=/bin/kill -9 $(pidof python3 /usr/bin/gpsflux)
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
+

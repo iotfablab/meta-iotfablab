@@ -1,0 +1,14 @@
+[Unit]
+Description=NMEA2000 Acquition Service for UMG
+After=influxdb.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/n2kparser --config /etc/umg/conf.json
+ExecStop=/bin/kill -9 $(pidof python3 /usr/bin/n2kparser)
+Restart=on-failure
+Restart=5s
+
+[Install]
+WantedBy=multi-user.target
+

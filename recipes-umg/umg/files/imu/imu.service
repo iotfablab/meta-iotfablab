@@ -1,0 +1,14 @@
+[Unit]
+Description=Bosch BNO055 Acquition Service for UMG
+After=influxdb.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/bnoflux --config /etc/umg/conf.json
+ExecStop=/bin/kill -9 $(pidof python3 /usr/bin/bnoflux)
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
+

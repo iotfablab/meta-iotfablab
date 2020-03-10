@@ -1,0 +1,14 @@
+[Unit]
+Description=Button Event Logging for InfluxDB and MQTT Publishing
+After=influxdb.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/buttonflux --config /etc/umg/conf.json
+ExecStop=/bin/kill -9 $(pidof python3 /usr/bin/buttonflux)
+Restart=on-failure
+Restart=5s
+
+[Install]
+WantedBy=multi-user.target
+
